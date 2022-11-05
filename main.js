@@ -61,4 +61,8 @@ function main () {
 
     return fraseArray.join("");
   }
+
+  function ejercicioCinco (palabraArray) {
+    return palabraArray.sort().join('');
+  }
 }
