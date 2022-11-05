@@ -1,89 +1,64 @@
-// Variables Globales
-
-function PushIntoArray () {
-  while (true) {
-    let numero = Number(prompt("Digite un número."));
-    arreglo.push(numero);
-  
-    let finCiclo = prompt("¿Desea ingresar más valores?");
-    if (finCiclo == "no") {
-      break;
-    }
-  }
-}
-let arreglo = [];
-let numeroMax = 0;
-
-let palindromo = String(prompt ("Ingrese un palíndromo"));
-let palindromoReversa = '';
-
-let matriz = [[1,0,0],[0,1,1],[0,1,0]];
-let contador = 0;
-
-let arregloRepetido = [];
-let numeroRepetido = Number;
-
-let parametro = Number (prompt('Digite un número igual o mayor a 5.'));
-
-// Ejercicios
+let numero = Number(prompt("Digite el número que desea utilizar"));
+let palabra = String(prompt("Digite la palabra que desea utilizar"));
+let frase = String(prompt("Digite la frase que desea utilizar"));
+let palabraArray = [...palabra];
+let palabraAbecedario = [];
 
 function main () {
-  function ejercicioUno () {
-    PushIntoArray()
-    
-    for (let i = 0; i < arreglo.length; i++) {
-      if (numeroMax < arreglo[i]) {
-        numeroMax = arreglo[i];
-      }
+
+  function ejercicioUno(numero) {
+    let parImpar = "";
+    let divisible = "";
+
+    if (numero % 2 === 0) {
+      parImpar = numero + " es un número par";
+    } else {
+      parImpar = numero + " es un número impar";
     }
-    console.log (numeroMax);
+
+    if (numero % 3 === 0) {
+      divisible = numero + " es divisible entre 3";
+    } else if (numero % 5 === 0) {
+      divisible = numero + " es divisible entre 5";
+    } else {
+      divisible = numero + " no es divisible entre 3 y 5";
+    }
+
+    console.log(parImpar);
+    console.log(divisible);
   }
 
-  function ejercicioDos () {
-    for (let i = palindromo.length - 1; i >= 0; i--) {
-      palindromoReversa = palindromoReversa + palindromo[i];
-    }
-    if (palindromoReversa === palindromo){
-      console.log (palindromoReversa, 'es un palindromo.')
-    } else {console.log(palindromo, 'no es un palindromo.')};
+  function ejercicioDos(numero) {
+    if (numero === 0) return 0;
+    return numero + ejercicioDos(numero - 1);
   }
-  /*
-  profe en este ejercicio quedé con la duda sobre por qué tuve que poner un -1 en el for
-  si no lo hacía, el primer valor del palindroReversa era un 'undefined' y no tengo idea del por qué.
-  Si usted supiera y me pudiera explicar se lo agradecería porque sigo sin saber el motivo.
-  */
-  function ejercicioTres () {
-    for (let i = 0; i < matriz.length; i++) {
-      for (let j = 0; j < matriz.length; j++) {
-        if (matriz[i][j] == 0) {
-          contador++
-        }
+
+  function ejercicioTres(palabra) {
+    let palabraInvertida = [];
+    let contador = palabraArray.length;
+
+    while (contador > 0) {
+      let caracter = palabraArray.pop();
+      palabraInvertida.push(caracter);
+      contador--;
+    }
+    return palabraInvertida.join("");
+  }
+
+  function ejercicioCuatro(frase) {
+    let fraseArray = [...frase];
+
+    for (i = 0; i < fraseArray.length; i++) {
+      if (
+        fraseArray[i] === "a" ||
+        fraseArray[i] === "e" ||
+        fraseArray[i] === "o" ||
+        fraseArray[i] === "u"
+      ) {
+        fraseArray[i] = "i";
       }
     }
-    console.log('La matriz contiene', contador, 'ceros.')
-  }
-  function ejercicioCuatro () {
-    PushIntoArray()
-  
-    for (i = 0; i < arreglo.length; i++) {
-      if (numeroRepetido !== arreglo[i]) {
-        numeroRepetido = arreglo[i]
-      } else {arregloRepetido.push(arreglo[i])}
-    }
-  
-    console.log('Los números repetidos son', arregloRepetido);
-  }
-  function ejercicioCinco () {
-    if (parametro < 5) {
-      alert ('El parámetro debe ser mayor a 5, por favor intente nuevamente.')
-    } else {
-      for(let i = 1; i <= parametro; i++) {
-        let resultado = '';
-        for(let j = 1; j <= i; j++){
-          resultado += '* ';
-        }
-        console.log(resultado)
-      }
-    }
+
+    return fraseArray.join("");
   }
 }
