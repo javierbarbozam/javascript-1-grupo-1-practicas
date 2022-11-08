@@ -6,7 +6,7 @@ Escriba un programa que solicite al usuario una lista de números y que, a parti
 El programa debe solicitar números al usuario y almacenarlos en un array. El programa continuará solicitando números hasta que el usuario ingrese un string vacío. Cuando esto ocurra se calcularán e imprimirán los resultados. 
 */
 
-let listaNumeros = [1,2,3];
+let listaNumeros = [];
 
 function solicitarDatos () {
   while (true) {
@@ -52,7 +52,10 @@ function valorMin (x) {
   console.log ('El valor mínimo es',numeroMin);
 };
 
-// solicitarDatos()
-// promedioDatos(listaNumeros);
-// valorMax(listaNumeros)
+
+// Llamado de las funciones
+
+solicitarDatos()
+promedioDatos(listaNumeros);
+valorMax(listaNumeros)
 valorMin(listaNumeros)
