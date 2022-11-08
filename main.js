@@ -1,89 +1,58 @@
-// Variables Globales
+/*
+Ejercicio 1:
+Escriba un programa que solicite al usuario una lista de números y que, a partir de ellos, calcule e imprima en la consola los siguientes valores estadísticos:
+- Mediana
 
-function PushIntoArray () {
+El programa debe solicitar números al usuario y almacenarlos en un array. El programa continuará solicitando números hasta que el usuario ingrese un string vacío. Cuando esto ocurra se calcularán e imprimirán los resultados. 
+*/
+
+let listaNumeros = [1,2,3];
+
+function solicitarDatos () {
   while (true) {
-    let numero = Number(prompt("Digite un número."));
-    arreglo.push(numero);
-  
-    let finCiclo = prompt("¿Desea ingresar más valores?");
-    if (finCiclo == "no") {
+  let consulta = Number(prompt('Inserte el número que desea agregar'))
+    if (consulta > 0) {
+      listaNumeros.push(consulta)
+    } else if (consulta === 0) {
       break;
     }
   }
-}
-let arreglo = [];
-let numeroMax = 0;
+};
 
-let palindromo = String(prompt ("Ingrese un palíndromo"));
-let palindromoReversa = '';
-
-let matriz = [[1,0,0],[0,1,1],[0,1,0]];
-let contador = 0;
-
-let arregloRepetido = [];
-let numeroRepetido = Number;
-
-let parametro = Number (prompt('Digite un número igual o mayor a 5.'));
-
-// Ejercicios
-
-function main () {
-  function ejercicioUno () {
-    PushIntoArray()
-    
-    for (let i = 0; i < arreglo.length; i++) {
-      if (numeroMax < arreglo[i]) {
-        numeroMax = arreglo[i];
-      }
-    }
-    console.log (numeroMax);
-  }
-
-  function ejercicioDos () {
-    for (let i = palindromo.length - 1; i >= 0; i--) {
-      palindromoReversa = palindromoReversa + palindromo[i];
-    }
-    if (palindromoReversa === palindromo){
-      console.log (palindromoReversa, 'es un palindromo.')
-    } else {console.log(palindromo, 'no es un palindromo.')};
-  }
-  /*
-  profe en este ejercicio quedé con la duda sobre por qué tuve que poner un -1 en el for
-  si no lo hacía, el primer valor del palindroReversa era un 'undefined' y no tengo idea del por qué.
-  Si usted supiera y me pudiera explicar se lo agradecería porque sigo sin saber el motivo.
-  */
-  function ejercicioTres () {
-    for (let i = 0; i < matriz.length; i++) {
-      for (let j = 0; j < matriz.length; j++) {
-        if (matriz[i][j] == 0) {
-          contador++
-        }
-      }
-    }
-    console.log('La matriz contiene', contador, 'ceros.')
-  }
-  function ejercicioCuatro () {
-    PushIntoArray()
+function promedioDatos (x) {
+  let cantidadItem = 1;
+  let promedio = 0;
   
-    for (i = 0; i < arreglo.length; i++) {
-      if (numeroRepetido !== arreglo[i]) {
-        numeroRepetido = arreglo[i]
-      } else {arregloRepetido.push(arreglo[i])}
-    }
+  for (i = x.length; i > 0; i --) {
+    promedio = x.pop() + promedio;
+    cantidadItem ++
+  }
   
-    console.log('Los números repetidos son', arregloRepetido);
-  }
-  function ejercicioCinco () {
-    if (parametro < 5) {
-      alert ('El parámetro debe ser mayor a 5, por favor intente nuevamente.')
-    } else {
-      for(let i = 1; i <= parametro; i++) {
-        let resultado = '';
-        for(let j = 1; j <= i; j++){
-          resultado += '* ';
-        }
-        console.log(resultado)
-      }
+  promedio = promedio / cantidadItem;
+  console.log ('El promedio es',promedio);
+};
+
+function valorMax (x) {
+  let numeroMax = 0;
+  for (i = 0; i < x.length; i++) {
+    if (numeroMax < x[i]) {
+      numeroMax = x[i];
     }
   }
-}
+  console.log ('El valor máximo es',numeroMax);
+};
+
+function valorMin (x) {
+  let numeroMin = x[0];
+  for (i = 0; i < x.length; i++) {
+    if (numeroMin > x[i]) {
+      numeroMin = x[i];
+    }
+  }
+  console.log ('El valor mínimo es',numeroMin);
+};
+
+// solicitarDatos()
+// promedioDatos(listaNumeros);
+// valorMax(listaNumeros)
+valorMin(listaNumeros)
