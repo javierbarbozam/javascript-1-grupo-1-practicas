@@ -3,16 +3,33 @@ let listaNumeros = [];
 function main (x) {
 
   function solicitarDatos () {
+    let listaNumeros = [];
     while (true) {
-    let consulta = Number(prompt('Inserte el número que desea agregar'))
-      if (consulta > 0) {
-        listaNumeros.push(consulta)
-      } else if (consulta === 0) {
+      let consulta = prompt ('inserte un número');
+      if (consulta === '') {
         break;
+      } else if (!isNaN(parseInt(consulta))) {
+        listaNumeros.push(parseInt(consulta));
       }
     }
   };
   
+  function solicitarDatos(x){
+    while(true) {
+      let consulta = prompt('porfavor ingrese un numero')
+      if (consulta === "") {
+        break;
+      } else if (typeof consulta === "string") {
+        continue;
+      } else {
+        alert('es un numero');
+        totalDeNumero.push(parseInt(numerosDados));
+      }
+    }
+    console.log('total de números: ', totalDeNumero)
+  }
+
+
   function promedioDatos (x) {
     let cantidadItem = 1;
     let promedio = 0;
