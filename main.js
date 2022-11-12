@@ -13,22 +13,6 @@ function main (x) {
       }
     }
   };
-  
-  function solicitarDatos(x){
-    while(true) {
-      let consulta = prompt('porfavor ingrese un numero')
-      if (consulta === "") {
-        break;
-      } else if (typeof consulta === "string") {
-        continue;
-      } else {
-        alert('es un numero');
-        totalDeNumero.push(parseInt(numerosDados));
-      }
-    }
-    console.log('total de números: ', totalDeNumero)
-  }
-
 
   function promedioDatos (x) {
     let cantidadItem = 1;
