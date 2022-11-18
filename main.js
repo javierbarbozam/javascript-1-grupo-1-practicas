@@ -6,6 +6,7 @@ function main () {
   let palabra = 'otorrinolaringolo';
   let caracter = 'o';
   let frase = 'hola soy yo';
+  let year = 1997;
 
   function factorial (numero) {
     if (numero === 0) {
@@ -51,11 +52,22 @@ function main () {
   
     return nuevaFrase;
   }
+  
+  function bisiesto (year) {
+    if (year % 4 === 0) {
+      if (year % 100 !== 0 || year % 400 === 0) {
+        return true;
+      } else {return false}
+    } else if (year % 400 === 0) {
+        return true;
+    } else {return false};
+  };
 
   numeroSecreto ();
   console.log('el caracter', caracter, 'aparece', caracteres(palabra), 'veces.');
   console.log('el factorial de', numero, 'es',factorial (numero));
   console.log('la frase sin espacios es',EspacioBlanco (frase));
+  console.log(year,'es bisiesto?',bisiesto (year));
 }
 
 main ()
