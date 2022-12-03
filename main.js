@@ -1,89 +1,53 @@
-// Variables Globales
-
-function PushIntoArray () {
-  while (true) {
-    let numero = Number(prompt("Digite un número."));
-    arreglo.push(numero);
-  
-    let finCiclo = prompt("¿Desea ingresar más valores?");
-    if (finCiclo == "no") {
-      break;
-    }
-  }
-}
-let arreglo = [];
-let numeroMax = 0;
-
-let palindromo = String(prompt ("Ingrese un palíndromo"));
-let palindromoReversa = '';
-
-let matriz = [[1,0,0],[0,1,1],[0,1,0]];
-let contador = 0;
-
-let arregloRepetido = [];
-let numeroRepetido = Number;
-
-let parametro = Number (prompt('Digite un número igual o mayor a 5.'));
-
-// Ejercicios
-
 function main () {
+  
+  let array = [1,2,3,4]
+  
   function ejercicioUno () {
-    PushIntoArray()
-    
-    for (let i = 0; i < arreglo.length; i++) {
-      if (numeroMax < arreglo[i]) {
-        numeroMax = arreglo[i];
-      }
-    }
-    console.log (numeroMax);
-  }
+    let triangulo = '***********';
+    let nuevoTriangulo = '';
 
-  function ejercicioDos () {
-    for (let i = palindromo.length - 1; i >= 0; i--) {
-      palindromoReversa = palindromoReversa + palindromo[i];
-    }
-    if (palindromoReversa === palindromo){
-      console.log (palindromoReversa, 'es un palindromo.')
-    } else {console.log(palindromo, 'no es un palindromo.')};
-  }
-  /*
-  profe en este ejercicio quedé con la duda sobre por qué tuve que poner un -1 en el for
-  si no lo hacía, el primer valor del palindroReversa era un 'undefined' y no tengo idea del por qué.
-  Si usted supiera y me pudiera explicar se lo agradecería porque sigo sin saber el motivo.
-  */
-  function ejercicioTres () {
-    for (let i = 0; i < matriz.length; i++) {
-      for (let j = 0; j < matriz.length; j++) {
-        if (matriz[i][j] == 0) {
-          contador++
-        }
+    for (i = 10; i >= 1; i--) {
+      nuevoTriangulo = triangulo.substring(0, i);
+      while (nuevoTriangulo.length < 10) {
+        nuevoTriangulo += '#'
       }
+      console.log(nuevoTriangulo)
     }
-    console.log('La matriz contiene', contador, 'ceros.')
   }
-  function ejercicioCuatro () {
-    PushIntoArray()
   
-    for (i = 0; i < arreglo.length; i++) {
-      if (numeroRepetido !== arreglo[i]) {
-        numeroRepetido = arreglo[i]
-      } else {arregloRepetido.push(arreglo[i])}
-    }
+  function ejercicioDos (a,b) {
+    let result= a;
+    let counter = 1;
   
-    console.log('Los números repetidos son', arregloRepetido);
+    do {
+      result *= a;
+      counter ++;
+    } while (counter < b);
+
+     console.log(result);
   }
-  function ejercicioCinco () {
-    if (parametro < 5) {
-      alert ('El parámetro debe ser mayor a 5, por favor intente nuevamente.')
+  
+  function ejercicioTres (a,b) {
+    let resultado = a;
+    if (b === 0) { 
+      return 1
     } else {
-      for(let i = 1; i <= parametro; i++) {
-        let resultado = '';
-        for(let j = 1; j <= i; j++){
-          resultado += '* ';
-        }
-        console.log(resultado)
-      }
+      return resultado * ejercicioTres(a, b - 1);
     }
   }
+  
+  function ejercicioCuatro(array, sumatoria) {
+    if (array.length === 0) {
+      console.log(sumatoria);
+      return sumatoria;
+    }
+    ejercicioCuatro(array.slice(1, array.length), sumatoria + array[0]);
+  }
+  
+  ejercicioUno();
+  ejercicioDos (2,3);
+  console.log(ejercicioTres (2,3));
+  ejercicioCuatro(array,0)
 }
+
+main ()
